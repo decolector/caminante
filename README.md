@@ -1,6 +1,6 @@
 # El caminante sobre un mar de nubes
 
-El caminante deambula por el plante, contemplando nubes.
+El caminante deambula por el planeta, contemplando nubes.
 
 ## Descripción
 
