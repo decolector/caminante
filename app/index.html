@@ -16,8 +16,8 @@
       max-width: 320px;
     }
     #dc-name { margin: 0 0 4px; }
-    #dc-org { font-size: 0.95em; opacity: 0.9; }
-    #dc-location { font-size: 0.85em; opacity: 0.75; }
+    #dc-location { font-size: 0.95em; opacity: 0.9; }
+    #dc-load { font-size: 0.85em; opacity: 0.75; }
     #wanderer {
       position: absolute; bottom: -11%; left: 50%; transform: translateX(-50%);
       height: 80vh; width: auto; z-index: 1; pointer-events: none;
@@ -28,15 +28,15 @@
 
 <div id="controls">
   <h3 id="dc-name">Caminante sobre un mar de nubes</h3>
-  <div id="dc-org"></div>
   <div id="dc-location"></div>
+  <div id="dc-load"></div>
 </div>
 
 <div id="map"></div>
 <img id="wanderer" src="wanderer.png" alt="Wanderer" />
 
 <script>
-  // Data Center Coordinates, loaded from peeringdb_datacenters.csv
+  // Data Center Coordinates, loaded from datacenter-atlas-sample-26.08-c2-sorted.csv
   let datacenters = [];
   let currentIndex = 0;
   let map;
@@ -89,26 +89,27 @@
   }
 
   async function loadDataCenters() {
-    const response = await fetch('peeringdb_datacenters.csv');
+    const response = await fetch('datacenter-atlas-sample-26.08-c2-sorted.csv');
     const text = await response.text();
     const records = parseCSV(text);
 
     return records
       .map(r => ({
         name: r.name,
-        org_name: r.org_name,
         city: r.city,
-        country: r.country,
-        lat: parseFloat(r.latitude),
-        lon: parseFloat(r.longitude)
+        country: r.country_name,
+        itLoadMw: r.it_load_mw,
+        lat: parseFloat(r.lat),
+        lon: parseFloat(r.lon)
       }))
       .filter(dc => dc.name && Number.isFinite(dc.lat) && Number.isFinite(dc.lon));
   }
 
   function showDataCenter(target) {
     document.getElementById('dc-name').innerText = target.name;
-    document.getElementById('dc-org').innerText = target.org_name || '';
     document.getElementById('dc-location').innerText = [target.city, target.country].filter(Boolean).join(', ');
+    const itLoadMw = parseFloat(target.itLoadMw);
+    document.getElementById('dc-load').innerText = Number.isFinite(itLoadMw) ? `IT load: ${itLoadMw} MW` : '';
   }
 
   function flyToNext() {
