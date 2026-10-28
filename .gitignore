@@ -1,0 +1,27 @@
+notas.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# macOS system files
+.DS_Store
+Icon?
+# Thumbnails
+.Thumbs.db
+
+# Windows system files
+.DS_Store
+Thumbs.db
