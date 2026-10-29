@@ -2,6 +2,8 @@
 
 El caminante deambula por el planeta, contemplando nubes.
 
+![Screenshot](screenshot.jpg)
+
 ## Datos
 
 Datos tomados del sitio de [Data Center Atlas](https://www.datacenter-atlas.com/).  Este proyecto publica una muestra representativa de todo el conjunto de datos accesible en su sitio.  Este conjunto cuenta con una detallada documentación de la [metodología](https://www.datacenter-atlas.com/methodology) de elaboración y de sus [campos](https://www.datacenter-atlas.com/methodology/indicators).
