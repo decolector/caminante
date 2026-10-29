@@ -22,6 +22,7 @@
       font-size: 0.8em; opacity: 0.7;
     }
     #dc-metrics li { margin: 2px 0; }
+    #dc-metrics li span { font-weight: bold; }
     #wanderer {
       position: absolute; bottom: -11%; left: 50%; transform: translateX(-50%);
       height: 80vh; width: auto; z-index: 1; pointer-events: none;
@@ -138,7 +139,10 @@
       const value = target[key];
       const displayValue = (value === undefined || value === null || value === '') ? 'No data' : value;
       const li = document.createElement('li');
-      li.innerText = `${label}: ${displayValue}`;
+      const labelSpan = document.createElement('span');
+      labelSpan.innerText = `${label}:`;
+      li.appendChild(labelSpan);
+      li.appendChild(document.createTextNode(` ${displayValue}`));
       metricsList.appendChild(li);
     });
   }
