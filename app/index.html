@@ -17,7 +17,11 @@
     }
     #dc-name { margin: 0 0 4px; }
     #dc-location { font-size: 0.95em; opacity: 0.9; }
-    #dc-load { font-size: 0.85em; opacity: 0.75; }
+    #dc-metrics {
+      list-style: none; margin: 8px 0 0; padding: 0;
+      font-size: 0.8em; opacity: 0.7;
+    }
+    #dc-metrics li { margin: 2px 0; }
     #wanderer {
       position: absolute; bottom: -11%; left: 50%; transform: translateX(-50%);
       height: 80vh; width: auto; z-index: 1; pointer-events: none;
@@ -29,7 +33,7 @@
 <div id="controls">
   <h3 id="dc-name">Caminante sobre un mar de nubes</h3>
   <div id="dc-location"></div>
-  <div id="dc-load"></div>
+  <ul id="dc-metrics"></ul>
 </div>
 
 <div id="map"></div>
@@ -99,17 +103,44 @@
         city: r.city,
         country: r.country_name,
         itLoadMw: r.it_load_mw,
+        dqs: r.dqs,
+        dqsGrade: r.dqs_grade,
+        derivedWsi: r.derived_wsi,
+        derivedSfi: r.derived_sfi,
+        derivedBws: r.derived_bws,
+        totalPowerMw: r.total_power_mw,
+        grossFloorAreaSqm: r.gross_floor_area_sqm,
         lat: parseFloat(r.lat),
         lon: parseFloat(r.lon)
       }))
       .filter(dc => dc.name && Number.isFinite(dc.lat) && Number.isFinite(dc.lon));
   }
 
+  // Metrics shown as a vertical list in #controls, in display order.
+  const METRIC_FIELDS = [
+    { key: 'itLoadMw', label: 'IT load (MW)' },
+    { key: 'dqs', label: 'Data quality score' },
+    { key: 'dqsGrade', label: 'Data quality score grade' },
+    { key: 'derivedWsi', label: 'Water stress index' },
+    { key: 'derivedSfi', label: 'Social friction index' },
+    { key: 'derivedBws', label: 'Baseline water stress' },
+    { key: 'totalPowerMw', label: 'Total power (MW)' },
+    { key: 'grossFloorAreaSqm', label: 'Gross floor area (sqm)' }
+  ];
+
   function showDataCenter(target) {
     document.getElementById('dc-name').innerText = target.name;
     document.getElementById('dc-location').innerText = [target.city, target.country].filter(Boolean).join(', ');
-    const itLoadMw = parseFloat(target.itLoadMw);
-    document.getElementById('dc-load').innerText = Number.isFinite(itLoadMw) ? `IT load: ${itLoadMw} MW` : '';
+
+    const metricsList = document.getElementById('dc-metrics');
+    metricsList.innerHTML = '';
+    METRIC_FIELDS.forEach(({ key, label }) => {
+      const value = target[key];
+      const displayValue = (value === undefined || value === null || value === '') ? 'No data' : value;
+      const li = document.createElement('li');
+      li.innerText = `${label}: ${displayValue}`;
+      metricsList.appendChild(li);
+    });
   }
 
   function flyToNext() {
