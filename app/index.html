@@ -7,6 +7,7 @@
   <link href="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.css" rel="stylesheet" />
   <style>
     body { margin: 0; padding: 0; background: black; }
+    a { color: orange; text-decoration: underline; }
     #map { position: absolute; top: 0; bottom: 0; width: 100%; }
     #controls {
       position: absolute; top: 10px; left: 10px; z-index: 1;
@@ -23,6 +24,7 @@
     }
     #dc-metrics li { margin: 2px 0; }
     #dc-metrics li span { font-weight: bold; }
+    #citation { margin-top: 16px; font-size: 0.65em; opacity: 0.6; }
     #wanderer {
       position: absolute; bottom: -11%; left: 50%; transform: translateX(-50%);
       height: 80vh; width: auto; z-index: 1; pointer-events: none;
@@ -35,6 +37,7 @@
   <h3 id="dc-name">Caminante sobre un mar de nubes</h3>
   <div id="dc-location"></div>
   <ul id="dc-metrics"></ul>
+  <div id="citation">Source: Datacenter Atlas, <a href="https://www.datacenter-atlas.com">https://www.datacenter-atlas.com</a> (data version 26.08-c2, accessed 2026-10-25)</div>
 </div>
 
 <div id="map"></div>
@@ -46,7 +49,7 @@
   let currentIndex = 0;
   let map;
 
-  const DWELL_MS = 2500; // pause at each location before flying to the next
+  const DWELL_MS = 5000; // pause at each location before flying to the next
 
   // Parses CSV text into an array of row objects keyed by header name.
   // Handles quoted fields, embedded commas/newlines, and escaped quotes ("").
