@@ -2,7 +2,7 @@
 
 > El sujeto despierta de su sueño de 200 años y decide dar un paseo. Al encuentro de un paisaje alienígena se pregunta extrañado: «¿Pero qué estoy viendo? ¿Estoy soñando? ¿Alucinando?».
 
-![Screenshot](screenshot.jpg)
+![Screenshot](screenshots/Screenshot04.jpg)
 
 ## Descripción
 
