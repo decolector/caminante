@@ -6,7 +6,7 @@
 
 ## Descripción
 
-Caminante sobre un mar de nubes reinterpreta la célebre pintura de Caspar David Friedrich de 1818 en el contexto del paisaje contemporáneo de las infraestructuras de datos y la _nube_ como su representación _gaseosa_.  En este experimento el caminante recorre un conjunto de ~200 centros de datos, ordenados de mayor a menor según su área de superficie ocupada.  En cada visita se pueden ver algunas métricas sobre cada centro de datos.
+Caminante sobre un mar de nubes reinterpreta la célebre pintura de Caspar David Friedrich de 1818 en el contexto del paisaje contemporáneo de las infraestructuras de datos y la _nube_ como su representación _gaseosa_.  En este experimento, el _caminante_ recorre un conjunto de ~200 centros de datos, ordenados de mayor a menor según su área de superficie ocupada.  En cada visita se pueden ver algunas métricas sobre cada centro de datos.
 
 ## Datos y metodología
 

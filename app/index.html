@@ -5,14 +5,16 @@
   <title>Caminante sobre un mar de nubes</title>
   <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
   <link href="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    body { margin: 0; padding: 0; background: black; }
+    body { margin: 0; padding: 0; background: black; font-family: 'IBM Plex Sans', sans-serif; }
     a { color: limegreen; text-decoration: underline; }
     #map { position: absolute; top: 0; bottom: 0; width: 100%; }
     #controls {
       position: absolute; top: 10px; left: 10px; z-index: 1;
       background: rgba(0,0,0,0.75); color: white; padding: 12px;
-      font-family: sans-serif; 
       border-radius: 4px;
       max-width: 320px;
     }
@@ -28,7 +30,7 @@
     #info-button {
       margin-top: 16px; width: 28px; height: 28px; border-radius: 50%;
       border: 1px solid rgba(255,255,255,0.6); background: transparent; color: white;
-      font-family: sans-serif; font-weight: bold; font-size: 0.95em;
+      font-weight: bold; font-size: 0.95em;
       cursor: pointer; line-height: 1;
     }
     #info-button:hover { background: rgba(255,255,255,0.15); }
@@ -43,7 +45,7 @@
     }
     #info-modal {
       position: relative; background: #111; color: white;
-      font-family: sans-serif; padding: 24px; border-radius: 8px;
+      padding: 24px; border-radius: 8px;
       max-width: 560px; width: 90%; max-height: 80vh; overflow-y: auto;
     }
     #info-modal h2 { margin-top: 0; }
@@ -71,17 +73,16 @@
     <h3> <a href="https://decolector.net" target="_blank" rel="noopener">Camilo Martínez</a>, 2026</h3>
     <blockquote>El sujeto despierta de su sueño de 200 años y decide dar un paseo. Al encuentro de un paisaje alienígena se pregunta extrañado: «¿Pero qué estoy viendo? ¿Estoy soñando? ¿Alucinando?».</blockquote>
     <h3>Descripción</h3>
-    <p>Caminante sobre un mar de nubes reinterpreta la célebre pintura de Caspar David Friedrich, de 1818, en el contexto del paisaje contemporáneo de las infraestructuras de datos y la <em>la nube</em> como su representación <em>gaseosa</em>. En este experimento el <em>caminante</em> recorre un conjunto de ~200 centros de datos, ordenados de mayor a menor según su área de superficie ocupada. En cada visita se pueden ver algunas métricas sobre el centro de datos correspondiente.</p>
+    <p>"Caminante sobre un mar de nubes" reinterpreta la célebre pintura de Caspar David Friedrich, de 1818, en el contexto del paisaje contemporáneo de las infraestructuras de datos y de <em>la nube</em> como su representación <em>gaseosa</em>. En este experimento el <em>caminante</em> recorre un conjunto de ~200 centros de datos, ordenados de mayor a menor según su área de superficie ocupada. En cada visita se pueden ver algunas métricas sobre el centro de datos correspondiente.</p>
     <h3>Datos y metodología</h3>
     <p>Datos tomados del sitio de <a href="https://www.datacenter-atlas.com/" target="_blank" rel="noopener">Data Center Atlas</a>. Este proyecto publica una muestra representativa de todo el conjunto de datos accesible en su sitio. Los datos cuentan con una detallada documentación de su <a href="https://www.datacenter-atlas.com/methodology" target="_blank" rel="noopener">metodología</a> de elaboración y de sus <a href="https://www.datacenter-atlas.com/methodology/indicators" target="_blank" rel="noopener">campos</a>.</p>
     <p>Para este proyecto he tomado ese conjunto de datos, lo he filtrado y ordenado de forma descendente por la columna de área del centro de datos (<code>gross_floor_area_sqm</code>).</p>
     <h3>Referencias</h3>
-    <p>Obra basada en la pintura 'Caminante sobre un mar de nubes, Caspar David Friedrich, Óleo sobre tela, 1818'</p>
-    <p><a href="https://es.wikipedia.org/wiki/El_caminante_sobre_el_mar_de_nubes" target="_blank" rel="noopener">https://es.wikipedia.org/wiki/El_caminante_sobre_el_mar_de_nubes</a></p>
-    <p>Conjuntos de datos obtenidos de:</p>
-    <ul>
-      <li><a href="https://www.datacenter-atlas.com/" target="_blank" rel="noopener">https://www.datacenter-atlas.com/</a></li>
-    </ul>
+    <p>Obra basada en la pintura <a href="https://es.wikipedia.org/wiki/El_caminante_sobre_el_mar_de_nubes">Caminante sobre un mar de nubes Caspar David Friedrich, Óleo sobre tela, 1818</a></p>
+    
+    <p>Conjunto de datos obtenidos de:
+    <a href="https://www.datacenter-atlas.com/" target="_blank" rel="noopener">https://www.datacenter-atlas.com/</a>
+    </p>
   </div>
 </div>
 
