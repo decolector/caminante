@@ -1,6 +1,5 @@
 # El caminante sobre un mar de nubes
 
-> El sujeto despierta de su sueño de 200 años y decide dar un paseo. Al encuentro de un paisaje alienígena se pregunta extrañado: «¿Pero qué estoy viendo? ¿Estoy soñando? ¿Alucinando?».
 
 ![Screenshot](screenshots/Screenshot04.jpg)
 
